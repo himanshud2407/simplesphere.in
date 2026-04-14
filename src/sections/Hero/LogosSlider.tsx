@@ -61,6 +61,7 @@ export function LogosSlider() {
 
   return (
     <div className='relative h-[120px] md:h-[160px] w-full overflow-hidden'>
+
       <InfiniteSlider 
         className='flex h-full w-full items-center' 
         duration={35}

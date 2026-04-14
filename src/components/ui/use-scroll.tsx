@@ -9,8 +9,9 @@ export function useScroll(threshold: number = 20) {
 			const scrollY = window.scrollY;
 			if (scrollY > threshold) {
 				setScrolled(true);
-			} else if (scrollY < Math.max(0, threshold - 30)) {
-				// We use a larger hysteresis (30px) to prevent jitter from layout shifts
+			} else if (scrollY < Math.max(0, threshold - 70)) {
+				// Increased hysteresis to 70 for total stability against layout shifts
+				// This compensates for the ~56px height change of the sticky header
 				setScrolled(false);
 			}
 		};

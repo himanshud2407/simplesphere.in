@@ -1,9 +1,9 @@
 import React from 'react';
 import Hero from '@/sections/Hero/Hero';
-import { HeroScrollDemo } from '@/sections/Hero/HeroScroll';
+import MacbookScrollDemo from '@/components/macbook-scroll-demo';
 import Categories from '@/sections/Categories/Categories';
 import Stats from '@/sections/Stats/Stats';
-import TrendingCourses from '@/sections/TrendingCourses/TrendingCourses';
+import ExplorePrograms from '@/sections/ExplorePrograms/ExplorePrograms';
 import InstructorBanner from '@/sections/Instructor/InstructorBanner';
 import Certification from '@/sections/Certification/Certification';
 import WhyChooseUs from '@/sections/WhyChooseUs/WhyChooseUs';
@@ -16,14 +16,16 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <HeroScrollDemo />
+      <MacbookScrollDemo />
       <Categories />
       <Stats />
-      <TrendingCourses />
+      {/* <TrendingCourses /> */}
+      <ExplorePrograms />
       <InstructorBanner />
       <Certification />
       <WhyChooseUs />
       <OurExperts />
+
       <Testimonials />
       <FAQ />
       <Blog />
