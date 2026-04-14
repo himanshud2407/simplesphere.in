@@ -96,26 +96,27 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Actions - Desktop */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            <Button asChild className="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl px-7 h-11 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] transition-all duration-300 active:scale-95">
-              <a href="https://students.simplesphere.in" target="_blank" rel="noopener noreferrer">
-                <span className="relative z-10">Portal</span>
-              </a>
-            </Button>
-            <Button asChild variant="outline" className="border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-600 text-slate-700 font-bold rounded-xl px-7 h-11 transition-all duration-300">
-              <a href="https://dashboard.simplesphere.in" target="_blank" rel="noopener noreferrer">LMS</a>
-            </Button>
-          </div>
+          {/* Actions & Toggle - Mobile/Desktop */}
+          <div className="flex items-center gap-2 md:gap-3 shrink-0 relative z-[70]">
+            {/* Desktop Actions */}
+            <div className="hidden md:flex items-center gap-3">
+              <Button asChild className="relative overflow-hidden group bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl px-7 h-11 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] transition-all duration-300 active:scale-95">
+                <a href="https://students.simplesphere.in" target="_blank" rel="noopener noreferrer">
+                  <span className="relative z-10">Portal</span>
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-600 text-slate-700 font-bold rounded-xl px-7 h-11 transition-all duration-300">
+                <a href="https://dashboard.simplesphere.in" target="_blank" rel="noopener noreferrer">LMS</a>
+              </Button>
+            </div>
 
-          {/* Mobile Toggle */}
-          <div className="flex lg:hidden items-center gap-3 relative z-[70]">
+            {/* Hamburger Toggle */}
             <Button
               size="icon"
               variant="ghost"
               onClick={() => setOpen(!open)}
               className={cn(
-                "rounded-xl transition-all duration-300",
+                "rounded-xl transition-all duration-300 lg:hidden",
                 open ? "bg-slate-100 text-blue-600 shadow-sm" : "text-slate-600 hover:text-blue-600 hover:bg-white/50"
               )}
             >

@@ -11,15 +11,18 @@ import OurExperts from '@/sections/OurExperts/OurExperts';
 import Testimonials from '@/sections/Testimonials/Testimonials';
 import FAQ from '@/sections/FAQ/FAQ';
 import Blog from '@/sections/Blog/Blog';
+import TrendingCourses from '@/sections/TrendingCourses/TrendingCourses';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <MacbookScrollDemo />
+      <TrendingCourses />
+      <div className="hidden md:block">
+        <MacbookScrollDemo />
+      </div>
       <Categories />
       <Stats />
-      {/* <TrendingCourses /> */}
       <ExplorePrograms />
       <InstructorBanner />
       <Certification />

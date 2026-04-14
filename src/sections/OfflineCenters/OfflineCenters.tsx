@@ -1,35 +1,35 @@
 import React from 'react';
-import { 
-  MapPin, 
-  Search, 
-  Filter, 
-  CheckCircle, 
-  Phone, 
-  Clock, 
-  Plus, 
-  Minus, 
-  Locate, 
-  GraduationCap 
+import {
+  MapPin,
+  Search,
+  Filter,
+  CheckCircle,
+  Phone,
+  Clock,
+  Plus,
+  Minus,
+  Locate,
+  GraduationCap
 } from 'lucide-react';
 
 export default function OfflineCenters() {
   return (
     <section className="bg-white">
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-8 py-20 text-center">
-        <h2 className="font-bold text-5xl md:text-6xl text-blue-900 tracking-tighter mb-6">
+      <div className="max-w-7xl mx-auto px-8 py-10 text-center">
+        <h2 className="font-bold text-5xl md:text-6xl text-[#2563EB] tracking-tighter mb-6">
           Find a Center Near You
         </h2>
         <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
           Experience high-quality education in person. Our architectural learning spaces are designed for focus, collaboration, and community.
         </p>
-        
+
         <div className="max-w-xl mx-auto relative">
           <div className="flex items-center bg-gray-50 p-2 rounded-xl shadow-sm ring-1 ring-gray-200 focus-within:ring-blue-500 transition-all">
             <MapPin className="ml-3 text-gray-400 w-5 h-5" />
-            <input 
-              type="text" 
-              className="w-full border-none bg-transparent py-3 px-4 text-gray-900 focus:ring-0 placeholder:text-gray-400" 
+            <input
+              type="text"
+              className="w-full border-none bg-transparent py-3 px-4 text-gray-900 focus:ring-0 placeholder:text-gray-400"
               placeholder="Enter city, state, or zip code"
             />
             <button className="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-all">
@@ -69,7 +69,7 @@ export default function OfflineCenters() {
                 <CheckCircle className="text-blue-600 w-5 h-5 fill-blue-100" />
               </div>
               <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                452 Lexington Ave, 12th Floor,<br/>
+                452 Lexington Ave, 12th Floor,<br />
                 New York, NY 10017
               </p>
               <div className="flex items-center gap-4 text-xs text-gray-500 mb-6">
@@ -91,7 +91,7 @@ export default function OfflineCenters() {
                 <MapPin className="text-blue-700 w-5 h-5 fill-blue-100" />
               </div>
               <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                110 East 9th St, Suite B,<br/>
+                110 East 9th St, Suite B,<br />
                 Austin, TX 78701
               </p>
               <div className="flex items-center gap-4 text-xs text-gray-500 mb-6">
@@ -109,7 +109,7 @@ export default function OfflineCenters() {
                 <h4 className="font-bold text-lg text-blue-900 group-hover:text-blue-700 transition-colors">Bay Area Creative Lab</h4>
               </div>
               <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                301 Howard St, Floor 4,<br/>
+                301 Howard St, Floor 4,<br />
                 San Francisco, CA 94105
               </p>
               <div className="flex items-center gap-4 text-xs text-gray-500 mb-6">
@@ -125,12 +125,12 @@ export default function OfflineCenters() {
 
         {/* Right Side: Interactive Map */}
         <div className="flex-grow relative bg-gray-200">
-          <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZWVI3RehKgR0HB4V-A_rWg_oJoRT5LGz5ZV-sNG9_lcbnrBCO4OGTUAn3xtbH2oWdWyH5Qml8ECqq2CqZPJAxvqVkzZtaY5G362htCsSBgNMZeV7BmuVat9FlROEuqRZyaBtiI6U7JHv4kvF0Vt3lJrBs5nNb1_h47GPE4OItZ0GZaxDnXx6JJhqTYDTCKgmc28_apQzeuem0xEAT9fSUTkAjK4oGumcD1uq6tW95ALoWE-JiOSSlgGrN6x4gKjLIrvl8Z2Xe0cs" 
-            alt="Map view" 
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZWVI3RehKgR0HB4V-A_rWg_oJoRT5LGz5ZV-sNG9_lcbnrBCO4OGTUAn3xtbH2oWdWyH5Qml8ECqq2CqZPJAxvqVkzZtaY5G362htCsSBgNMZeV7BmuVat9FlROEuqRZyaBtiI6U7JHv4kvF0Vt3lJrBs5nNb1_h47GPE4OItZ0GZaxDnXx6JJhqTYDTCKgmc28_apQzeuem0xEAT9fSUTkAjK4oGumcD1uq6tW95ALoWE-JiOSSlgGrN6x4gKjLIrvl8Z2Xe0cs"
+            alt="Map view"
             className="w-full h-full object-cover grayscale opacity-60"
           />
-          
+
           {/* Map Overlay Controls */}
           <div className="absolute top-6 right-6 flex flex-col gap-2">
             <button className="bg-white/80 backdrop-blur-md p-2 rounded-lg shadow-lg text-blue-900 hover:bg-white transition-all">

@@ -41,14 +41,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left z-20"
+            className="lg:col-span-6 flex flex-col items-start text-left z-20"
           >
-            {/* Top Badge */}
+            {/* Top Badge - Desktop Only */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100/80 text-blue-700 text-sm font-semibold mb-6 shadow-sm"
+              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100/80 text-blue-700 text-sm font-semibold mb-6 shadow-sm"
             >
               <span className="flex h-2 w-2 rounded-full bg-blue-600 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -57,30 +57,52 @@ export default function Hero() {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[4.2rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-6">
-              Learn <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">Skills</span> &<br className="hidden lg:block" /> Earn Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Certificate.</span>
+            <h1 className="text-[2.2rem] sm:text-5xl lg:text-[4.2rem] font-bold text-slate-900 leading-[1.1] tracking-tight mb-4 md:mb-6">
+              <span className="md:hidden">Learn Skills &<br />Earn Your Certificate.</span>
+              <span className="hidden md:block">Learn <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">Skills</span> &<br className="hidden lg:block" /> Earn Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Certificate.</span></span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl font-medium leading-relaxed mb-10">
+            <p className="text-base sm:text-xl text-slate-500 md:text-slate-600 max-w-2xl font-medium leading-relaxed mb-8 md:mb-10">
               Accelerate your career with industry-recognized certifications. Master in-demand skills and secure your dream internship today.
             </p>
 
-            {/* Buttons Row */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 mb-12 w-full sm:w-auto">
-              {/* Added responsive scaling to button wrapper so it doesn't break layout */}
+            {/* Mobile Image Grid (Matches Reference Layout) */}
+            <div className="flex md:hidden w-full gap-3 mb-8">
+              <div className="w-[60%] aspect-[4/5] overflow-hidden rounded-[2rem]">
+                <img src="/hero/large.png" alt="Student Learning" className="w-full h-full object-cover" />
+              </div>
+              <div className="w-[40%] flex flex-col gap-3">
+                <div className="h-[55%] overflow-hidden rounded-[1.5rem]">
+                  <img src="/hero/small_top.png" alt="Certificate Badge" className="w-full h-full object-cover" />
+                </div>
+                <div className="h-[45%] overflow-hidden rounded-[1.5rem]">
+                  <img src="/hero/small_bottom.png" alt="Collaboration" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+
+            {/* Buttons Row - Desktop */}
+            <div className="hidden md:flex flex-col sm:flex-row items-center gap-6 mb-12 w-full sm:w-auto">
               <div className="scale-100 sm:scale-105 origin-center sm:origin-left">
                 <StarButton />
               </div>
               <ButtonWithIconDemo 
-                className="bg-white/80 backdrop-blur-sm text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 shadow-sm transition-all duration-300" 
-                circleClassName="!bg-slate-100 !text-slate-700 group-hover:!bg-blue-600 group-hover:!text-white transition-colors"
+                className="bg-white/80 backdrop-blur-sm text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 shadow-sm" 
+                circleClassName="bg-white text-blue-600 md:bg-blue-600 md:text-white transition-all duration-500"
                 text="Explore More" 
               />
             </div>
 
-            {/* Trust Metrics */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8 pt-6 border-t border-slate-200/60 text-sm font-medium text-slate-600 w-full">
+            {/* Mobile CTA Button (Matches Reference Layout) */}
+            <div className="md:hidden w-full flex justify-center mb-10">
+                <button className="bg-[#2563EB] text-white px-10 py-3.5 rounded-full font-bold text-sm shadow-xl hover:bg-slate-800 transition-all flex items-center justify-center transform active:scale-95">
+                  Explore Courses
+                </button>
+            </div>
+
+            {/* Trust Metrics - Desktop Only */}
+            <div className="hidden lg:flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8 pt-6 border-t border-slate-200/60 text-sm font-medium text-slate-600 w-full">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-blue-600" />
                 <span>Industry Expert Mentors</span>
@@ -92,12 +114,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Content - 3D Visual */}
+          {/* Right Content - 3D Visual (Hidden on Mobile, replaced by grid above) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="lg:col-span-6 relative w-full mt-12 lg:mt-0"
+            className="hidden lg:col-span-6 relative w-full lg:flex items-center justify-center"
           >
             {/* Dialogue Badge */}
             <div className="absolute top-0 right-4 md:-top-4 md:right-8 z-[30] pointer-events-none">
@@ -143,8 +165,8 @@ export default function Hero() {
             </div>
 
             {/* Spline Container with subtle modern glow */}
-            <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center filter drop-shadow-2xl">
-              <div className="w-[110%] h-full focus:outline-none scale-100 sm:scale-110 lg:scale-[1.2] origin-center transition-transform duration-700 ease-out hover:scale-[1.25]">
+            <div className="relative w-full h-[600px] flex items-center justify-center filter drop-shadow-2xl">
+              <div className="w-[110%] h-full focus:outline-none scale-110 lg:scale-[1.2] origin-center transition-transform duration-700 ease-out hover:scale-[1.25]">
                 <SplineScene 
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full focus:outline-none"
