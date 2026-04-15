@@ -1,6 +1,9 @@
 import { GraduationCap, Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function InstructorBanner() {
+  const navigate = useNavigate();
+
   return (
     <section className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full flex flex-col md:flex-row items-stretch gap-6 lg:gap-8">
@@ -18,7 +21,10 @@ export default function InstructorBanner() {
             <p className="text-blue-50 text-base mb-10 leading-relaxed">
               Join thousands of learners who've already taken their career to the next level with expert-led courses.
             </p>
-            <button className="px-8 py-4 bg-[#E0E7FF] text-gray-800 font-bold rounded-xl hover:bg-white transition-all shadow-md">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-8 py-4 bg-[#E0E7FF] text-gray-800 font-bold rounded-xl hover:bg-white transition-all shadow-md"
+            >
               Get Started Now
             </button>
           </div>
@@ -44,7 +50,10 @@ export default function InstructorBanner() {
             <p className="text-blue-50 text-base mb-10 leading-relaxed">
               Join our teaching community and reach thousands of students around the world with your expertise.
             </p>
-            <button className="px-8 py-4 bg-[#E0E7FF] text-gray-800 font-bold rounded-xl hover:bg-white transition-all shadow-md mt-auto">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-8 py-4 bg-[#E0E7FF] text-gray-800 font-bold rounded-xl hover:bg-white transition-all shadow-md mt-auto"
+            >
               Drop Information
             </button>
           </div>

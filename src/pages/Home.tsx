@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrendingCourses />
+      {/*    */}
       <div className="hidden md:block">
         <MacbookScrollDemo />
       </div>

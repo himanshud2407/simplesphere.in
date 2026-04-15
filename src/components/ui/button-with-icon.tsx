@@ -2,9 +2,22 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const ButtonWithIconDemo = ({ className, circleClassName, text = "Enroll Now" }: { className?: string; circleClassName?: string; text?: string }) => {
+const ButtonWithIconDemo = ({ 
+  className, 
+  circleClassName, 
+  text = "Enroll Now",
+  to 
+}: { 
+  className?: string; 
+  circleClassName?: string; 
+  text?: string;
+  to?: string;
+}) => {
+  // Default link based on text if 'to' is not provided
+  const target = to || (text === "Enroll Now" ? "/contact" : "/courses");
+
   return (
-    <Link to="/courses">
+    <Link to={target}>
       <Button className={`group/button relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 transition-all duration-500 ease-in-out md:hover:ps-14 md:hover:pe-6 w-fit overflow-hidden cursor-pointer ${className}`}>
         <span className="relative z-10 transition-all duration-500 ease-in-out">
           {text}

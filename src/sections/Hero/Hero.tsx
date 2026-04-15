@@ -12,6 +12,8 @@ const DIALOGUES = [
   "Explore courses & get certified 🚀"
 ];
 
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   const [currentDialogue, setCurrentDialogue] = useState(0);
 
@@ -84,9 +86,11 @@ export default function Hero() {
 
             {/* Buttons Row - Desktop */}
             <div className="hidden md:flex flex-col sm:flex-row items-center gap-6 mb-12 w-full sm:w-auto">
-              <div className="scale-100 sm:scale-105 origin-center sm:origin-left">
-                <StarButton />
-              </div>
+              <Link to="/contact">
+                <div className="scale-100 sm:scale-105 origin-center sm:origin-left">
+                  <StarButton />
+                </div>
+              </Link>
               <ButtonWithIconDemo 
                 className="bg-white/80 backdrop-blur-sm text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 shadow-sm" 
                 circleClassName="bg-white text-blue-600 md:bg-blue-600 md:text-white transition-all duration-500"
@@ -96,9 +100,11 @@ export default function Hero() {
 
             {/* Mobile CTA Button (Matches Reference Layout) */}
             <div className="md:hidden w-full flex justify-center mb-10">
-                <button className="bg-[#2563EB] text-white px-10 py-3.5 rounded-full font-bold text-sm shadow-xl hover:bg-slate-800 transition-all flex items-center justify-center transform active:scale-95">
-                  Explore Courses
-                </button>
+                <Link to="/courses">
+                  <button className="bg-[#2563EB] text-white px-10 py-3.5 rounded-full font-bold text-sm shadow-xl hover:bg-slate-800 transition-all flex items-center justify-center transform active:scale-95">
+                    Explore Courses
+                  </button>
+                </Link>
             </div>
 
             {/* Trust Metrics - Desktop Only */}

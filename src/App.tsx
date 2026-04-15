@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from '@/sections/Header/Header';
 import Footer from '@/sections/Footer/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { motion, AnimatePresence } from 'motion/react';
+import { AuthProvider, useAuth } from '@/lib/AuthContext';
 
 // Pages
 import Home from '@/pages/Home';
@@ -10,9 +11,17 @@ import BlogPage from '@/pages/BlogPage';
 import ContactUsPage from '@/pages/ContactUsPage';
 import AllCoursesPage from '@/pages/AllCoursesPage';
 import FindCenterPage from '@/pages/FindCenterPage';
+import AdminDashboard from '@/pages/AdminDashboard';
+import LoginPage from '@/pages/LoginPage';
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <>{children}</> : <Navigate to="/login" />;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
+  const isAdminPage = location.pathname.startsWith('/admin') || location.pathname === '/login';
   
   return (
     <AnimatePresence mode="wait">
@@ -30,6 +39,15 @@ function AnimatedRoutes() {
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/courses" element={<AllCoursesPage />} />
           <Route path="/find-center" element={<FindCenterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route 
+            path="/admin" 
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -37,15 +55,18 @@ function AnimatedRoutes() {
 }
 
 function Layout() {
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/login' || location.pathname.startsWith('/admin');
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
       <ScrollToTop />
-      <Header />
+      {!isAuthPage && <Header />}
       <div className="flex-1 flex flex-col relative w-full">
         <main className="flex-1 flex flex-col">
           <AnimatedRoutes />
         </main>
-        <Footer />
+        {!isAuthPage && <Footer />}
       </div>
     </div>
   );
@@ -53,8 +74,11 @@ function Layout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
+

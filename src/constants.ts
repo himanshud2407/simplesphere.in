@@ -147,7 +147,6 @@ export const FAQS = [
   { question: 'How to enroll in a course?', answer: 'Simply click the Enroll Now button on any course page.' },
   { question: 'What are the requirements?', answer: 'Most courses require only a basic understanding of the subject.' },
 ];
-
 export const BLOGS = [
   {
     id: 1,
@@ -168,3 +167,4 @@ export const BLOGS = [
     image: 'https://picsum.photos/seed/blog3/400/250',
   },
 ];
+

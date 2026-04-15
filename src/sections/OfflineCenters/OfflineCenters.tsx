@@ -17,7 +17,7 @@ export default function OfflineCenters() {
     <section className="bg-white">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-8 py-10 text-center">
-        <h2 className="font-bold text-5xl md:text-6xl text-[#2563EB] tracking-tighter mb-6">
+        <h2 className="font-bold text-5xl md:text-6xl text-gray-900 tracking-tighter mb-6">
           Find a Center Near You
         </h2>
         <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">

@@ -1,6 +1,7 @@
 import { BLOGS } from '@/constants';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 export default function Blog() {
   return (
@@ -14,7 +15,9 @@ export default function Blog() {
             </h2>
             <p className="hidden md:block text-gray-500 mt-2">Learn from our experts and stay updated with the latest trends.</p>
           </div>
-          <button className="hidden md:block text-blue-600 font-semibold hover:underline">View All</button>
+          <Link to="/blog">
+            <button className="hidden md:block text-blue-600 font-semibold hover:underline">View All</button>
+          </Link>
         </div>
         
         {/* Mobile: Latest Stories Layout */}
@@ -68,9 +71,11 @@ export default function Blog() {
 
           {/* Mobile View All Pill */}
           <div className="flex justify-center pt-4">
-            <button className="border-2 border-slate-900 text-slate-900 px-10 py-2.5 rounded-full font-bold text-sm hover:bg-slate-900 hover:text-white transition-all transform active:scale-95">
-                Read more articles
-            </button>
+            <Link to="/blog">
+              <button className="border-2 border-slate-900 text-slate-900 px-10 py-2.5 rounded-full font-bold text-sm hover:bg-slate-900 hover:text-white transition-all transform active:scale-95">
+                  Read more articles
+              </button>
+            </Link>
           </div>
         </div>
 

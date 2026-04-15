@@ -5,22 +5,24 @@ import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
 
+import { Link } from 'react-router-dom';
+
 export function Header() {
 	const [open, setOpen] = React.useState(false);
 	const scrolled = useScroll(10);
 
 	const links = [
 		{
-			label: 'Features',
-			href: '#',
+			label: 'Courses',
+			href: '/courses',
 		},
 		{
-			label: 'Pricing',
-			href: '#',
+			label: 'Blog',
+			href: '/blog',
 		},
 		{
-			label: 'About',
-			href: '#',
+			label: 'Contact',
+			href: '/contact',
 		},
 	];
 
@@ -58,15 +60,21 @@ export function Header() {
 					},
 				)}
 			>
-				<WordmarkIcon className="h-4" />
+				<Link to="/">
+					<WordmarkIcon className="h-4" />
+				</Link>
 				<div className="hidden items-center gap-2 md:flex">
 					{links.map((link, i) => (
-						<a key={i} className={buttonVariants({ variant: 'ghost' })} href={link.href}>
+						<Link key={i} className={buttonVariants({ variant: 'ghost' })} to={link.href}>
 							{link.label}
-						</a>
+						</Link>
 					))}
-					<Button variant="outline">Sign In</Button>
-					<Button>Get Started</Button>
+					<Link to="/login">
+						<Button variant="outline">Sign In</Button>
+					</Link>
+					<Link to="/contact">
+						<Button>Get Started</Button>
+					</Link>
 				</div>
 				<Button size="icon" variant="outline" onClick={() => setOpen(!open)} className="md:hidden">
 					<MenuToggleIcon open={open} className="size-5" duration={300} />
@@ -88,23 +96,28 @@ export function Header() {
 				>
 					<div className="grid gap-y-2">
 						{links.map((link) => (
-							<a
+							<Link
 								key={link.label}
 								className={buttonVariants({
 									variant: 'ghost',
 									className: 'justify-start',
 								})}
-								href={link.href}
+								to={link.href}
+								onClick={() => setOpen(false)}
 							>
 								{link.label}
-							</a>
+							</Link>
 						))}
 					</div>
 					<div className="flex flex-col gap-2">
-						<Button variant="outline" className="w-full">
-							Sign In
-						</Button>
-						<Button className="w-full">Get Started</Button>
+						<Link to="/login" onClick={() => setOpen(false)}>
+							<Button variant="outline" className="w-full">
+								Sign In
+							</Button>
+						</Link>
+						<Link to="/contact" onClick={() => setOpen(false)}>
+							<Button className="w-full">Get Started</Button>
+						</Link>
 					</div>
 				</div>
 			</div>
