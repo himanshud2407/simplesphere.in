@@ -43,8 +43,8 @@ const authenticateToken = (req, res, next) => {
 
 
 // Supabase setup for courses
-const supabaseUrl = process.env.SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseKey = process.env.SUPABASE_ANON_KEY || 'placeholder-key';
+const supabaseUrl = process.env.SUPABASE_URL || 'https://svclrnjsjpeebzijiepp.supabase.co'; //For development purpose remove in deployment.
+const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2Y2xybmpzanBlZWJ6aWppZXBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyMjAzMDAsImV4cCI6MjA5MTc5NjMwMH0.JZBbXkId0cr3nAHKHVSlBo6gmNIGAgpX0lHE9RZnKvY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // ------------- COURSES API (Supabase) -------------
